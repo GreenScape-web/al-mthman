@@ -109,7 +109,10 @@
                     });
                     // Only scroll to the bottom if the user hasn't scrolled up
                     if (!userScrolledUp) {
-                         scrollToBottom();
+                         // Use a slight delay to ensure the DOM has updated and the new message has a height
+                        setTimeout(() => {
+                            scrollToBottom();
+                        }, 0);
                     }
                 }, (error) => {
                     console.error("Failed to fetch messages:", error);
